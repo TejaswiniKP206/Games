@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sunset Snake & Ladder</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="sunset-glow"></div>
+
+    <header class="topbar">
+        <div class="logo">🌅 Sunset Games</div>
+        <span class="tagline">A little roll of happiness</span>
+    </header>
+
+    <main class="game-container">
+
+        <section class="intro">
+            <p class="eyebrow">A CLASSIC WITH A SUNSET TWIST</p>
+            <h1>Snake <span>&</span> Ladder</h1>
+            <p>Roll the dice, climb the ladders and avoid the sneaky snakes!</p>
+        </section>
+
+        <!-- GAME SETUP -->
+
+        <section class="setup-panel" id="setupPanel">
+
+            <h2>Ready to play?</h2>
+
+            <div class="mode-options">
+
+                <button class="mode-btn active" data-mode="local">
+                    👥 Local Players
+                </button>
+
+                <button class="mode-btn" data-mode="computer">
+                    🤖 Vs Computer
+                </button>
+
+                <button class="mode-btn" data-mode="online">
+                    🌐 Online
+                </button>
+
+            </div>
+
+
+<div class="player-inputs">
+    <input
+        type="text"
+        id="player1"
+        placeholder="Your name"
+        value="Player 1"
+        maxlength="15"
+    >
+
+    <input
+        type="text"
+        id="player2"
+        placeholder="Player 2 name"
+        value="Player 2"
+        maxlength="15"
+    >
+</div>
+
+<!-- ONLINE ROOM CONTROLS -->
+
+<div id="onlineControls" class="hidden">
+
+    <button class="start-btn" id="createRoomBtn">
+        Create Room 🌅
+    </button>
+
+    <p style="margin: 15px;">OR JOIN A FRIEND</p>
+
+    <input
+        type="text"
+        id="roomCode"
+        placeholder="Enter room code"
+        maxlength="6"
+    >
+
+    <button class="start-btn" id="joinRoomBtn">
+        Join Room 🎮
+    </button>
+
+    <div id="onlineMessage" class="setup-message"></div>
+
+</div>
+
+
+            <button class="start-btn" id="startBtn">
+                Start Game ✨
+            </button>
+
+            <p class="setup-message" id="setupMessage"></p>
+
+        </section>
+
+        <!-- GAME AREA -->
+
+        <section class="game-area hidden" id="gameArea">
+
+            <div class="player-panel">
+
+                <div class="player-card player-one" id="playerCard0">
+                    <div class="player-icon">🌸</div>
+                    <div>
+                        <h3 id="name0">Player 1</h3>
+                        <p>Position: <span id="position0">0</span></p>
+                    </div>
+                    <span class="turn-badge" id="turn0">YOUR TURN</span>
+                </div>
+
+                <div class="player-card player-two" id="playerCard1">
+                    <div class="player-icon">🌻</div>
+                    <div>
+                        <h3 id="name1">Player 2</h3>
+                        <p>Position: <span id="position1">0</span></p>
+                    </div>
+                    <span class="turn-badge" id="turn1">WAITING</span>
+                </div>
+
+            </div>
+
+            <div class="board-wrapper">
+
+                <div class="board" id="board">
+
+                    <svg class="board-art" id="boardArt"
+                         viewBox="0 0 1000 1000"
+                         preserveAspectRatio="none">
+                    </svg>
+
+                </div>
+
+            </div>
+
+            <div class="controls">
+
+                <div class="dice-display" id="diceDisplay">
+                    🎲
+                </div>
+
+                <p id="turnMessage">Player 1, roll the dice!</p>
+
+                <button class="roll-btn" id="rollBtn">
+                    ROLL DICE 🎲
+                </button>
+
+                <button class="restart-btn" id="restartBtn">
+                    ↻ New Game
+                </button>
+
+            </div>
+
+            <div class="game-message" id="gameMessage">
+                Welcome to Sunset Snake & Ladder!
+            </div>
+
+            <div class="legend">
+                <span>🐍 Snakes take you down</span>
+                <span>🪜 Ladders take you up</span>
+                <span>🏆 Reach 100 to win</span>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        Made with ☀️ and a little luck.
+    </footer>
+
+   <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
+   <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
